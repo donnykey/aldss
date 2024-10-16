@@ -1,0 +1,78 @@
+<!DOCTYPE html>  
+<html>  
+<head>  
+    <title>阿拉丁神灯-信息检索</title>  
+    <style>  
+        body {  
+            font-family: Arial, sans-serif;  
+            background-color: #f4f4f4;  
+            margin: 0;  
+            padding: 20px;  
+            display: flex;  
+            justify-content: center;  
+            align-items: center;  
+            height: 100vh;  
+        }  
+  
+        .container {  
+            background-color: #fff;  
+            padding: 20px;  
+            border-radius: 8px;  
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);  
+            width: 400px;  
+            text-align: center;  
+        }  
+  
+        h1 {  
+            color: #333;  
+            margin-bottom: 20px;  
+        }  
+  
+        label {  
+            display: block;  
+            margin-bottom: 5px;  
+            font-weight: bold;  
+            color: #666;  
+        }  
+  
+        input[type="text"] {  
+            width: calc(100% - 22px);  
+            padding: 10px;  
+            margin-bottom: 15px;  
+            border: 1px solid #ccc;  
+            border-radius: 4px;  
+            font-size: 16px;  
+        }  
+  
+        input[type="submit"] {  
+            width: 100%;  
+            padding: 10px;  
+            border: none;  
+            border-radius: 4px;  
+            background-color: #007bff;  
+            color: white;  
+            font-size: 16px;  
+            cursor: pointer;  
+        }  
+  
+        input[type="submit"]:hover {  
+            background-color: #0056b3;  
+        }  
+    </style>  
+</head>  
+<body>  
+    <div class="container">  
+        <h1>阿拉丁神灯-信息检索</h1>  
+        <h2>找服务商资源不求人</h2>  
+        <form action="/search" method="get">  
+            <label for="city">城市:(上海)</label>  
+            <input type="text" name="city" id="city" placeholder="请输入城市"><br>  
+            <label for="region">行政区域:(闵行)</label>  
+            <input type="text" name="region" id="region" placeholder="请输入行政区域"><br>  
+            <label for="keyword">关键词:(电脑维修)</label>  
+            <input type="text" name="keyword" id="keyword" placeholder="请输入关键词"><br>  
+            <input type="submit" value="搜索">  
+        </form>  
+    </div>  
+</body>  
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>中国行政划分</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>中国行政划分</h1>
+        <div>
+            <label for="province">省：</label>
+            <select id="province" v-model="selectedProvince" @change="getCities">
+                <option v-for="province in provinces" :value="province">{{ province }}</option>
+            </select>
+        </div>
+        <div>
+            <label for="city">市：</label>
+            <select id="city" v-model="selectedCity" @change="getDistricts">
+                <option v-for="city in cities" :value="city">{{ city }}</option>
+            </select>
+        </div>
+        <div>
+            <label for="district">区县：</label>
+            <select id="district" v-model="selectedDistrict">
+                <option v-for="district in districts" :value="district">{{ district }}</option>
+            </select>
+        </div>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                provinces: [],
+                cities: [],
+                districts: [],
+                selectedProvince: '',
+                selectedCity: '',
+                selectedDistrict: ''
+            },
+            methods: {
+                getProvinces: function() {
+                    axios.get('https://api.example.com/provinces')
+                        .then(response => {
+                            this.provinces = response.data;
+                        })
+                        .catch(error => {
+                            console.error(error);
+                        });
+                },
+                getCities: function() {
+                    axios.get('https://api.example.com/cities?province=' + this.selectedProvince)
+                        .then(response => {
+                            this.cities = response.data;
+                            this.districts = [];
+                        })
+                        .catch(error => {
+                            console.error(error);
+                        });
+                },
+                getDistricts: function() {
+                    axios.get('https://api.example.com/districts?province=' + this.selectedProvince + '&city=' + this.selectedCity)
+                        .then(response => {
+                            this.districts = response.data;
+                        })
+                        .catch(error => {
+                            console.error(error);
+                        });
+                }
+            },
+            mounted: function() {
+                this.getProvinces();
+            }
+        });
+    </script>
+</body>
+</html>

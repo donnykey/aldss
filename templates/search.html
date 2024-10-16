@@ -1,0 +1,99 @@
+<!DOCTYPE html>    
+<html>    
+<head>    
+    <title>搜索结果</title>    
+    <style>    
+        /* ... 保持其他样式不变 ... */  
+  
+        /* 新增按钮样式和居中样式 */  
+                body {  
+            font-family: Arial, sans-serif;  
+            background-color: #f4f4f4;  
+            margin: 0;  
+            padding: 20px;  
+        }  
+  
+        .container {  
+            background-color: #fff;  
+            padding: 20px;  
+            border-radius: 8px;  
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);  
+            width: 80%;  
+            margin: auto;  
+            max-width: 1200px;  
+        }  
+  
+        h1 {  
+            color: #333;  
+            text-align: center;  
+        }  
+  
+        ul {  
+            list-style-type: none;  
+            padding: 0;  
+        }  
+  
+        li {  
+            border-bottom: 1px solid #eee;  
+            padding: 15px;  
+            margin-bottom: 10px;  
+        }  
+  
+        h2 {  
+            color: #007bff;  
+            margin-top: 0;  
+        }  
+  
+        p {  
+            margin: 0;  
+        }  
+  
+        .contact-info {  
+            font-size: 0.9em;  
+            color: #666;  
+        }  
+  
+        /* 可以在这里添加更多样式，比如悬停效果等 */  
+        li:hover {  
+            background-color: #f8f9fa;  
+        }  
+
+        .back-button {  
+            display: flex;  
+            justify-content: center; /* 水平居中 */  
+            margin-top: 20px; /* 与列表之间添加一些间距 */  
+        }  
+  
+        .back-button button {  
+            padding: 10px 20px; /* 按钮内边距 */  
+            font-size: 1em; /* 字体大小 */  
+            border: none; /* 去除边框 */  
+            border-radius: 5px; /* 圆角边框 */  
+            background-color: #007bff; /* 背景色 */  
+            color: white; /* 文本颜色 */  
+            cursor: pointer; /* 鼠标悬停时显示手指形状 */  
+        }  
+  
+        .back-button button:hover {  
+            background-color: #0056b3; /* 鼠标悬停时的背景色 */  
+        }  
+    </style>    
+</head>    
+<body>    
+    <div class="container">    
+        <h1>搜索结果 by: HYOnline </h1>    
+        <ul>    
+            {% for result in results %}    
+            <li>    
+                <h2>{{ result.name }}</h2>    
+                <p class="contact-info">地址：{{ result.address }}</p>    
+                <p class="contact-info">联系方式：{{ result.phone }}</p>    
+            </li>    
+            {% endfor %}    
+        </ul>  
+        <div class="back-button">  
+            <button onclick="window.history.back();">返回</button>  
+        </div>  
+    </div>   
+</body>    
+</html>
